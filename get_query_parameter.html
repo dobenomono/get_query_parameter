@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0,width=device-width" />
+
+<script type="text/javascript">
+window.onload = function onLoad() {
+    param = getParam('test');
+    target = document.getElementById("param");
+    target.innerHTML = param;
+}
+
+//ソース
+//https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+function getParam(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+</script>
+
+</head>
+
+<body style="font-family: '游ゴシック', 'YuGothic-Medium', 'メイリオ', Meiryo, sans-serif; background-color: #fff; margin: 0; font-size: 14px; line-height: 1.5;">
+  <div>パラメーター</div>
+  <div id="param"></div>
+</body>
+
+</html>
