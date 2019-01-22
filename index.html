@@ -8,11 +8,25 @@
 
 <script type="text/javascript">
 window.onload = function onLoad() {
-    param = getParam('test');
+
+	//パラメータ名
+	param_name = "test";
+
+	//パラメータ取得
+    //param_value = getParam(param_name);
+    param_value = document.location.search;
+    
+    //パラメータ表示
     target = document.getElementById("param");
-    target.innerHTML = param;
+    target.innerHTML = param_value;
+    
+    //aタグ更新
+    target_url = document.getElementById("btn-a");
+    target_url.innerHTML = window.location.href;
+    target_url.href = window.location.href + param_value;
 }
 
+//特定のパラメータの値を取得する関数
 //ソース
 //https://stackoverflow.com/a/901144
 function getParam(name, url) {
@@ -32,6 +46,9 @@ function getParam(name, url) {
 <body style="font-family: '游ゴシック', 'YuGothic-Medium', 'メイリオ', Meiryo, sans-serif; background-color: #fff; margin: 0; font-size: 14px; line-height: 1.5;">
   <div>パラメーター</div>
   <div id="param"></div>
+  <div>URL</div>
+  <a id="btn-a" href="" target="_blank"></a>
+  
 </body>
 
 </html>
