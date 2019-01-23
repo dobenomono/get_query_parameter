@@ -9,34 +9,17 @@
 <script type="text/javascript">
 window.onload = function onLoad() {
 
-	//パラメータ名
-	param_name = "test";
-
-	//パラメータ取得
-    //param_value = getParam(param_name);
+	//パラメータ取得 "?(パラメータ名)=(値)"の箇所
     param_value = document.location.search;
     
     //パラメータ表示
     target = document.getElementById("param");
     target.innerHTML = param_value;
     
-    //aタグ更新
+    //aタグ更新 id="btn-a"のaタグを書き換える
     target_url = document.getElementById("btn-a");
-    target_url.innerHTML = window.location.href;
-    target_url.href = window.location.href + param_value;
-}
-
-//特定のパラメータの値を取得する関数
-//ソース
-//https://stackoverflow.com/a/901144
-function getParam(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+    target_url.innerHTML = "http://他サイトのURL"+param_value;
+    target_url.href = "http://他サイトのURL"+param_value;
 }
 
 </script>
@@ -48,7 +31,6 @@ function getParam(name, url) {
   <div id="param"></div>
   <div>URL</div>
   <a id="btn-a" href="" target="_blank"></a>
-  
 </body>
 
 </html>
